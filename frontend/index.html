@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QUESTiFY</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- Favicon for most browsers -->
+<link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+
+<!-- Favicon for modern browsers (optional) -->
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+
+<!-- Apple Touch Icon (for iOS devices) -->
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-icon-180x180.png">
+
+<!-- Web Manifest (optional) -->
+<link rel="manifest" href="/assets/manifest.json">
+
+
+
+
+</head>
+
+<body>
+
+<!-- Navbar upar wala ilaka -->
+<nav class="navbar">
+    <div class="container">
+      <!-- Logo -->
+      <a href="#" class="logo">
+        <img src="/assets/logo.png" alt="Logo"> <!-- Apna logo lgaalenge -->
+        <span>QUESTiFY</span>
+      </a>
+  
+      <!-- Hamburger Menu (for mobile) bakwaas-->
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+  
+      <!-- Nav Links upar wale ke liye he hai-->
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <!-- <li><button id="openLoginModal">Login</button></li> //ye sab kaam future me hoga
+        <li><button id="openRegisterModal">Register</button></li> -->
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Login Modal
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Login</h2>
+      <form id="loginForm">
+        <div class="form-group">                    //future ka part hai
+          <label for="loginUsername">Username:</label>
+          <input type="text" id="loginUsername" required>
+        </div>
+        <div class="form-group">
+          <label for="loginPassword">Password:</label>
+          <input type="password" id="loginPassword" required>
+        </div>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </div>
+
+  Registration Modal
+  <div id="registerModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Register</h2>
+      <form id="registerForm">
+        <div class="form-group">
+          <label for="registerUsername">Username:</label>       //future ka part hai part2
+          <input type="text" id="registerUsername" required>
+        </div>
+        <div class="form-group">
+          <label for="registerPassword">Password:</label>
+          <input type="password" id="registerPassword" required>
+        </div>
+        <button type="submit">Register</button>
+      </form>
+    </div>
+  </div> -->
+
+  <!-- Hero Section  ek type se cover page-->
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Generate MCQs Effortlessly</h1>
+        <p>Create multiple-choice questions for aptitude and technical preparation with ease.</p>
+        <a href="#input-section" class="cta-button">Get Started</a>
+      </div>
+      <!-- <div class="hero-image">
+        <img src="/assets/" alt="MCQ Generator">      //image lgaani thi pr set ni ho rahi 
+      </div> -->
+    </div>
+  </section>
+
+  <!-- Features Section ye jo humne kuch bnaayi hai iske kuch faaltu features-->
+  <section id="features" class="features">
+    <div class="container">
+      <h2>Features</h2>
+      <div class="feature-grid">
+        <div class="feature-item">
+          <i class="fas fa-brain"></i>
+          <h3>AI-Powered</h3>
+          <p>Uses advanced AI to generate contextually accurate questions.</p>
+        </div>
+        <div class="feature-item">
+          <i class="fas fa-sliders-h"></i>
+          <h3>Customizable</h3>
+          <p>Choose topics, difficulty levels, and the number of questions.</p>
+        </div>
+        <div class="feature-item">
+          <i class="fas fa-chart-line"></i>
+          <h3>Performance Tracking</h3>
+          <p>Track your progress and improve over time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Input Section yaha se shuru hoga asli khel (main part hai)-->
+  <section id="input-section" class="input-section">
+    <div class="container">
+      <h2>Generate MCQs</h2>
+      <form id="mcqForm">
+        <!-- Text Area for Input -->
+        <div class="form-group">
+          <label for="textInput">Enter Text:</label>
+          <textarea id="textInput" placeholder="Paste your content here..." required></textarea>
+        </div>
+  
+        <!-- Dropdown for Distractor Method jo model use karna hai wo choose karo -->
+        <div class="form-group">
+          <label for="methodSelect">Distractor Method:</label>
+          <select id="methodSelect">
+            <option value="Wordnet">WordNet</option>
+            <option value="Sense2Vec">Sense2Vec</option>
+          </select>
+        </div>
+  
+        <!-- Input for Number of Questions
+        <div class="form-group">              //future part3
+          <label for="numQuestions">Number of Questions:</label>
+          <input type="number" id="numQuestions" min="1" max="20" value="5" required>
+        </div>
+  
+        Dropdown for Difficulty Level
+        <div class="form-group">
+          <label for="difficultySelect">Difficulty Level:</label>
+          <select id="difficultySelect">
+            <option value="Easy">Easy</option>        //future part 4
+            <option value="Medium">Medium</option>
+            <option value="Hard">Hard</option>
+          </select>
+        </div> -->
+  
+        <!-- Submit Button ye dikhaayega asli khel -->
+        <button type="submit">Generate MCQs</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- MCQ Display Section ye bhi dikhaayega khel maut ka -->
+  <section class="mcq-section">
+    <div class="container">
+      <h2>Generated MCQs</h2>
+
+      <!-- Loader -->
+<div id="loader" class="loader" style="display: none;">
+  <div class="spinner"></div>
+</div>
+
+      <div id="mcqList" class="mcq-list"></div>
+    </div>
+  </section>
+
+  <!-- About Section ye bhi page bharne ke liye hai-->
+  <section id="about" class="about">
+    <div class="container">
+      <h2>QUESTiFY- Turn Learning into a Quest</h2>
+      <p>QUESTiFY is a powerful tool designed to help students and educators create customizable quizzes for aptitude and technical preparation. With AI-powered question generation and performance tracking, it provides a seamless learning experience.</p>
+    </div>
+  </section>
+
+<!-- How It Works Section steps me dikhaaya hai kaise kaam karta hai -->
+<section id="how-it-works" class="how-it-works">
+  <div class="container">
+    <h2>How It Works</h2>
+    <div class="steps">
+      <!-- Step 1: Input Text -->
+      <div class="step">
+        <span class="step-number">1</span>
+        <h3>Input Text</h3>
+        <p>Paste your text or upload a document. The system processes the text to extract key concepts and sentences.</p>
+        <!-- <div class="visual">
+          <img src="images/input-text.png" alt="Input Text">
+        </div> -->
+      </div>
+
+      <!-- Step 2: Summarize Text -->
+      <div class="step">
+        <span class="step-number">2</span>
+        <h3>Summarize Text</h3>
+        <p>The text is summarized using a <strong>T5 Transformer model</strong> to focus on the most important information.</p>
+        <!-- <div class="visual">
+          <img src="images/summarize-text.png" alt="Summarize Text">  //nahi chala
+        </div> -->
+      </div>
+
+      <!-- Step 3: Extract Keywords -->
+      <div class="step">
+        <span class="step-number">3</span>
+        <h3>Extract Keywords</h3>
+        <p>Key phrases and nouns are extracted using <strong>MultipartiteRank</strong> and <strong>Spacy</strong> for question generation.</p>
+        <!-- <div class="visual">
+          <img src="images/extract-keywords.png" alt="Extract Keywords">   //nahi chala 
+        </div> -->
+      </div>
+
+      <!-- Step 4: Generate Questions -->
+      <div class="step">
+        <span class="step-number">4</span>
+        <h3>Generate Questions</h3>
+        <p>Questions are generated using a <strong>T5 SQuAD model</strong>, which creates contextually accurate MCQs.</p>
+        <!-- <div class="visual">
+          <img src="images/generate-questions.png" alt="Generate Questions">   //nahi chala 
+        </div> -->
+      </div>
+
+      <!-- Step 5: Create Distractors -->
+      <div class="step">
+        <span class="step-number">5</span>
+        <h3>Create Distractors</h3>
+        <p>Distractors (incorrect options) are generated using <strong>Sense2Vec</strong> and <strong>WordNet</strong> for plausible alternatives.</p>
+        <!-- <div class="visual">
+          <img src="images/create-distractors.png" alt="Create Distractors">    //nahi chala 
+        </div> -->
+      </div>
+
+      <!-- Step 6: Display MCQs -->
+      <div class="step">
+        <span class="step-number">6</span>
+        <h3>Display MCQs</h3>
+        <p>The final MCQs are displayed with options, correct answers, and explanations for effective learning.</p>
+        <!-- <div class="visual">
+          <img src="images/display-mcqs.png" alt="Display MCQs">
+        </div> -->
+      </div>
+
+      <!-- Try It Now Box wahi le jaayega generate section pe  -->
+      <div class="step cta-box">
+        <h3>Ready to Try It?</h3>
+        <p>Start generating MCQs now and experience the power of AI-driven question generation.</p>
+        <a href="#input-section" class="cta-button">Try It Now</a>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+  <!-- Testimonials Section ye nakli hai naam change karna chahe to kar sakte hai -->
+  <section id="testimonials" class="testimonials">
+    <div class="container">
+      <h2>What Our Users Say</h2>
+      <div class="testimonial-grid">
+        <div class="testimonial-item">
+          <p>"This tool has revolutionized the way I prepare for exams. Highly recommended!"</p>
+          <h3>- Aman Kumar Singh</h3>
+        </div>
+        <div class="testimonial-item">
+          <p>"The AI-generated questions are incredibly accurate and relevant."</p>
+          <h3>- Adarsh Thakur</h3>
+        </div>
+        <div class="testimonial-item">
+          <p>"A must-have tool for anyone serious about learning."</p>
+          <h3>- Raghuvendra Pratap Singh</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Contact Section ye kisi tarah kaam kar raha hai -->
+<section id="contact" class="contact">
+  <div class="container">
+    <h2>Contact Us</h2>
+    <form action="https://api.web3forms.com/submit" method="POST" id="contactForm">
+      <!-- Web3Forms Access Key -->
+      <input type="hidden" name="access_key" value="8ae84174-eba0-4629-8291-1ffd6882401f"> 
+
+      <!-- Name Field -->
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+
+      <!-- Email Field -->
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <!-- Message Field -->
+      <div class="form-group">
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</section>
+
+  
+
+  <!-- Move to Top Button -->
+<button id="moveToTopBtn" title="Go to top">↑</button>
+
+ <!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <!-- About Section -->
+      <div class="footer-section">
+        <h3>QUESTiFY</h3>
+        <p>QUESTiFY is a powerful tool designed to help students and educators create customizable quizzes for aptitude and technical preparation.</p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter Section
+      <div class="footer-section">
+        <h3>Subscribe to Our Newsletter</h3>    //ye bhi nahi lgaana kisi kaam ka nahi hai 
+        <form id="newsletterForm">
+          <input type="email" placeholder="Enter your email" required>
+          <button type="submit">Subscribe</button>
+        </form>
+        <p>Stay updated with the latest features and news.</p>
+      </div> -->
+
+      <!-- Social Media Section -->
+      <div class="footer-section">
+        <h3>Follow Us</h3>
+        <div class="social-links">
+          <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+          <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+          <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Copyright -->
+    <div class="copyright">
+      <p>&copy; 2025 QUESTiFY. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
