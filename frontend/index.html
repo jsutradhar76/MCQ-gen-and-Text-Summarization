@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questify - AI Text Summarization & MCQ Generator</title>
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"> -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="logo">
+                    <span class="logo-icon">📚</span>Questify
+                </h1>
+                <p class="subtitle">AI-Powered Text Summarization & MCQ Generator</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Input Section -->
+            <section class="input-section">
+                <div class="section-card">
+                    <h2 class="section-title">📝 Enter Your Text</h2>
+                    
+                    <form id="questifyForm">
+                        <!-- Text Input -->
+                        <div class="form-group">
+                            <label for="textInput" class="label">Your Text</label>
+                            <textarea 
+                                id="textInput" 
+                                class="textarea"
+                                placeholder="Paste your text here... (minimum 50 words recommended)"
+                                rows="10"
+                            ></textarea>
+                            <span class="char-count">
+                                <span id="charCount">0</span> characters
+                            </span>
+                        </div>
+
+                        <!-- Number of Questions -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="numQuestions" class="label">Number of MCQs</label>
+                                <div class="input-wrapper">
+                                    <input 
+                                        type="number" 
+                                        id="numQuestions" 
+                                        class="input" 
+                                        value="5" 
+                                        min="1" 
+                                        max="20"
+                                    >
+                                    <span class="input-hint">1-20 questions</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="label">Quick Select</label>
+                                <div class="quick-buttons">
+                                    <button type="button" class="quick-btn" data-value="3">3</button>
+                                    <button type="button" class="quick-btn" data-value="5">5</button>
+                                    <button type="button" class="quick-btn" data-value="10">10</button>
+                                    <button type="button" class="quick-btn" data-value="15">15</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn btn-primary" id="submitBtn">
+                            <span class="btn-text">Generate Summary & MCQs</span>
+                            <span class="btn-icon">→</span>
+                        </button>
+                    </form>
+
+                    <!-- Loading State -->
+                    <div id="loadingContainer" class="loading-container" style="display: none;">
+                        <div class="spinner"></div>
+                        <p class="loading-text">Processing your text...</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section id="resultsSection" class="results-section" style="display: none;">
+                <!-- Summary Section -->
+                <div class="section-card summary-card">
+                    <h2 class="section-title">✨ Summary</h2>
+                    <div id="summaryContent" class="summary-content"></div>
+                    <button class="btn btn-secondary" id="copySummaryBtn">
+                        📋 Copy Summary
+                    </button>
+                </div>
+
+                <!-- MCQs Section -->
+                <div class="section-card mcqs-card">
+                    <h2 class="section-title">❓ Multiple Choice Questions</h2>
+                    <div id="mcqsContainer" class="mcqs-container"></div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button class="btn btn-secondary" id="resetBtn">
+                        ↺ Start Over
+                    </button>
+                    <button class="btn btn-secondary" id="downloadBtn">
+                        ⬇ Download Results
+                    </button>
+                </div>
+            </section>
+
+            <!-- Error Message -->
+            <div id="errorContainer" class="error-container" style="display: none;">
+                <div class="error-box">
+                    <span class="error-icon">⚠️</span>
+                    <p id="errorMessage"></p>
+                    <button class="btn btn-tertiary" id="closeErrorBtn">Close</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 Questify - AI Text Summarization & MCQ Generator</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
